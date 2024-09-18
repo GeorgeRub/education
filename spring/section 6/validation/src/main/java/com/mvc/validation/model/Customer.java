@@ -1,5 +1,6 @@
 package com.mvc.validation.model;
 
+import com.mvc.validation.validation.CourseCode;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
@@ -20,5 +21,8 @@ public class Customer {
     @NotNull(message = "Should not be empty")
     @Pattern(regexp = "^[a-zA-z0-9]{5}", message = "Only 5 characters/digits")
     private String postalCode;
+
+    @CourseCode
+    private String courseCode;
 
 }

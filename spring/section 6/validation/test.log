@@ -21,3 +21,68 @@ Field error in object 'customer' on field 'postalCode': rejected value [null]; c
 
 
 
+2024-09-18T10:52:15.647-03:00  INFO 21348 --- [validation] [main] c.mvc.validation.ValidationApplication   : Starting ValidationApplication using Java 21.0.3 with PID 21348 (C:\Users\george.rublov\source\education\spring\section 6\validation\target\classes started by george.rublov in C:\Users\george.rublov\source\education\spring\section 6\validation)
+2024-09-18T10:52:15.651-03:00 DEBUG 21348 --- [validation] [main] c.mvc.validation.ValidationApplication   : Running with Spring Boot v3.3.3, Spring v6.1.12
+2024-09-18T10:52:15.652-03:00  INFO 21348 --- [validation] [main] c.mvc.validation.ValidationApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-09-18T10:52:17.572-03:00  INFO 21348 --- [validation] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-18T10:52:17.594-03:00  INFO 21348 --- [validation] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-18T10:52:17.595-03:00  INFO 21348 --- [validation] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-18T10:52:17.691-03:00  INFO 21348 --- [validation] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-18T10:52:17.692-03:00  INFO 21348 --- [validation] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1952 ms
+2024-09-18T10:52:18.388-03:00  INFO 21348 --- [validation] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-18T10:52:18.397-03:00  INFO 21348 --- [validation] [main] c.mvc.validation.ValidationApplication   : Started ValidationApplication in 3.756 seconds (process running for 5.399)
+2024-09-18T10:54:21.828-03:00  INFO 15044 --- [validation] [main] c.mvc.validation.ValidationApplication   : Starting ValidationApplication using Java 21.0.3 with PID 15044 (C:\Users\george.rublov\source\education\spring\section 6\validation\target\classes started by george.rublov in C:\Users\george.rublov\source\education\spring\section 6\validation)
+2024-09-18T10:54:21.832-03:00 DEBUG 15044 --- [validation] [main] c.mvc.validation.ValidationApplication   : Running with Spring Boot v3.3.3, Spring v6.1.12
+2024-09-18T10:54:21.834-03:00  INFO 15044 --- [validation] [main] c.mvc.validation.ValidationApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-09-18T10:54:23.615-03:00  INFO 15044 --- [validation] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-18T10:54:23.641-03:00  INFO 15044 --- [validation] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-18T10:54:23.642-03:00  INFO 15044 --- [validation] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-18T10:54:23.714-03:00  INFO 15044 --- [validation] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-18T10:54:23.714-03:00  INFO 15044 --- [validation] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1791 ms
+2024-09-18T10:54:24.250-03:00  INFO 15044 --- [validation] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-18T10:54:24.258-03:00  INFO 15044 --- [validation] [main] c.mvc.validation.ValidationApplication   : Started ValidationApplication in 3.411 seconds (process running for 4.725)
+2024-09-18T10:54:33.207-03:00  INFO 15044 --- [validation] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-18T10:54:33.208-03:00  INFO 15044 --- [validation] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-18T10:54:33.212-03:00  INFO 15044 --- [validation] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-09-18T10:54:36.832-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-2] c.m.v.controller.CustomerController      : Last name: |null|
+2024-09-18T10:54:36.834-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-2] c.m.v.controller.CustomerController      : Binding results: org.springframework.validation.BeanPropertyBindingResult: 3 errors
+Field error in object 'customer' on field 'freePasses': rejected value [null]; codes [NotNull.customer.freePasses,NotNull.freePasses,NotNull.java.lang.Integer,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.freePasses,freePasses]; arguments []; default message [freePasses]]; default message [Should not be empty]
+Field error in object 'customer' on field 'postalCode': rejected value [null]; codes [NotNull.customer.postalCode,NotNull.postalCode,NotNull.java.lang.String,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.postalCode,postalCode]; arguments []; default message [postalCode]]; default message [Should not be empty]
+Field error in object 'customer' on field 'lastName': rejected value [null]; codes [NotNull.customer.lastName,NotNull.lastName,NotNull.java.lang.String,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.lastName,lastName]; arguments []; default message [lastName]]; default message [Should not be empty]
+2024-09-18T10:54:36.834-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-2] c.m.v.controller.CustomerController      : 
+
+
+
+
+2024-09-18T10:54:40.636-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-3] c.m.v.controller.CustomerController      : Last name: |null|
+2024-09-18T10:54:40.636-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-3] c.m.v.controller.CustomerController      : Binding results: org.springframework.validation.BeanPropertyBindingResult: 4 errors
+Field error in object 'customer' on field 'freePasses': rejected value [null]; codes [NotNull.customer.freePasses,NotNull.freePasses,NotNull.java.lang.Integer,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.freePasses,freePasses]; arguments []; default message [freePasses]]; default message [Should not be empty]
+Field error in object 'customer' on field 'postalCode': rejected value [null]; codes [NotNull.customer.postalCode,NotNull.postalCode,NotNull.java.lang.String,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.postalCode,postalCode]; arguments []; default message [postalCode]]; default message [Should not be empty]
+Field error in object 'customer' on field 'courseCode': rejected value [rrrrrrr]; codes [CourseCode.customer.courseCode,CourseCode.courseCode,CourseCode.java.lang.String,CourseCode]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.courseCode,courseCode]; arguments []; default message [courseCode],LUV]; default message [Invalid course code. Must start with LUV]
+Field error in object 'customer' on field 'lastName': rejected value [null]; codes [NotNull.customer.lastName,NotNull.lastName,NotNull.java.lang.String,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.lastName,lastName]; arguments []; default message [lastName]]; default message [Should not be empty]
+2024-09-18T10:54:40.636-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-3] c.m.v.controller.CustomerController      : 
+
+
+
+
+2024-09-18T10:54:48.657-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-4] c.m.v.controller.CustomerController      : Last name: |null|
+2024-09-18T10:54:48.657-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-4] c.m.v.controller.CustomerController      : Binding results: org.springframework.validation.BeanPropertyBindingResult: 3 errors
+Field error in object 'customer' on field 'postalCode': rejected value [null]; codes [NotNull.customer.postalCode,NotNull.postalCode,NotNull.java.lang.String,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.postalCode,postalCode]; arguments []; default message [postalCode]]; default message [Should not be empty]
+Field error in object 'customer' on field 'lastName': rejected value [null]; codes [NotNull.customer.lastName,NotNull.lastName,NotNull.java.lang.String,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.lastName,lastName]; arguments []; default message [lastName]]; default message [Should not be empty]
+Field error in object 'customer' on field 'freePasses': rejected value [null]; codes [NotNull.customer.freePasses,NotNull.freePasses,NotNull.java.lang.Integer,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.freePasses,freePasses]; arguments []; default message [freePasses]]; default message [Should not be empty]
+2024-09-18T10:54:48.658-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-4] c.m.v.controller.CustomerController      : 
+
+
+
+
+2024-09-18T10:54:54.181-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-5] c.m.v.controller.CustomerController      : Last name: |null|
+2024-09-18T10:54:54.181-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-5] c.m.v.controller.CustomerController      : Binding results: org.springframework.validation.BeanPropertyBindingResult: 4 errors
+Field error in object 'customer' on field 'freePasses': rejected value [null]; codes [NotNull.customer.freePasses,NotNull.freePasses,NotNull.java.lang.Integer,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.freePasses,freePasses]; arguments []; default message [freePasses]]; default message [Should not be empty]
+Field error in object 'customer' on field 'postalCode': rejected value [null]; codes [NotNull.customer.postalCode,NotNull.postalCode,NotNull.java.lang.String,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.postalCode,postalCode]; arguments []; default message [postalCode]]; default message [Should not be empty]
+Field error in object 'customer' on field 'courseCode': rejected value [LU2123]; codes [CourseCode.customer.courseCode,CourseCode.courseCode,CourseCode.java.lang.String,CourseCode]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.courseCode,courseCode]; arguments []; default message [courseCode],LUV]; default message [Invalid course code. Must start with LUV]
+Field error in object 'customer' on field 'lastName': rejected value [null]; codes [NotNull.customer.lastName,NotNull.lastName,NotNull.java.lang.String,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.lastName,lastName]; arguments []; default message [lastName]]; default message [Should not be empty]
+2024-09-18T10:54:54.181-03:00 DEBUG 15044 --- [validation] [http-nio-8080-exec-5] c.m.v.controller.CustomerController      : 
+
+
+
+
