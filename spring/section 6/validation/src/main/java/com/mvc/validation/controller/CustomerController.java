@@ -2,6 +2,7 @@ package com.mvc.validation.controller;
 
 import com.mvc.validation.model.Customer;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+@Slf4j
 @Controller
 public class CustomerController {
 
@@ -39,12 +41,12 @@ public class CustomerController {
             @Valid @ModelAttribute("customer") Customer customer,
             BindingResult theBindingResult) {
 
-        System.out.println("Last name: |" + customer.getLastName() + "|");
-
+        log.debug("Last name: |{}|", customer.getLastName());
+        log.debug("Binding results: {}", theBindingResult.toString());
+        log.debug("\n\n\n\n");
         if (theBindingResult.hasErrors()) {
             return "customer-form";
-        }
-        else {
+        } else {
             return "customer-confirmation";
         }
     }

@@ -12,10 +12,12 @@ public class Customer {
     @Size(min=1, message = "Should be more than 1 character")
     private String lastName;
 
+    @NotNull(message = "Should not be empty")
     @Min(value=0, message="must be greater than or equal to zero")
     @Max(value=10, message="must be less than or equal to 10")
-    private int freePasses;
+    private Integer freePasses;
 
+    @NotNull(message = "Should not be empty")
     @Pattern(regexp = "^[a-zA-z0-9]{5}", message = "Only 5 characters/digits")
     private String postalCode;
 
