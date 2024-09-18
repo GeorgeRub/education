@@ -1,8 +1,8 @@
-function TabButton(props){
-    return(
-<li>
-    <button>{props.children}</button>
-</li>
+function TabButton({children, clickEvent}) {
+    return (
+        <li>
+            <button onClick={clickEvent}>{children}</button>
+        </li>
     );
 }
 
