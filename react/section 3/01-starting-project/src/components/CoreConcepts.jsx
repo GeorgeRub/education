@@ -1,9 +1,9 @@
-function CoreConcepts(props){
+function CoreConcepts({image, title, description}) {
     return(
       <li>
-         <img src={props.image} alt={props.title} />
-        <div>{props.title}</div>
-        <p>{props.description}</p>
+         <img src={image} alt={title} />
+        <div>{title}</div>
+        <p>{description}</p>
       </li>
     )
   }

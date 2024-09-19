@@ -33,19 +33,16 @@ function App() {
                 <section id="core-concepts">
                     <h2>Core Concepts</h2>
                     <ul>
-                        <CoreConcepts {...CORE_CONCEPTS[0]} />
-                        <CoreConcepts {...CORE_CONCEPTS[1]} />
-                        <CoreConcepts {...CORE_CONCEPTS[2]} />
-                        <CoreConcepts {...CORE_CONCEPTS[3]} />
+                        {CORE_CONCEPTS.map((itemConcept) => <CoreConcepts key={itemConcept.title} {...itemConcept} />)}
                     </ul>
                 </section>
                 <section id="examples">
                     <h2>Examples</h2>
                     <menu>
-                        <TabButton clickEvent={() => handleSelect('components')}>Components</TabButton>
-                        <TabButton clickEvent={() => handleSelect('jsx')}>JSX</TabButton>
-                        <TabButton clickEvent={() => handleSelect('props')}>Props</TabButton>
-                        <TabButton clickEvent={() => handleSelect('state')}>State</TabButton>
+                        <TabButton isSelected={selectedTopic === 'components'} clickEvent={() => handleSelect('components')}>Components</TabButton>
+                        <TabButton isSelected={selectedTopic === 'jsx'} clickEvent={() => handleSelect('jsx')}>JSX</TabButton>
+                        <TabButton isSelected={selectedTopic === 'props'} clickEvent={() => handleSelect('props')}>Props</TabButton>
+                        <TabButton isSelected={selectedTopic === 'state'} clickEvent={() => handleSelect('state')}>State</TabButton>
                     </menu>
                     {tabContent}
                 </section>
