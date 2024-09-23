@@ -8,7 +8,7 @@
   <ul>
     @for (task of listOfTasks; track task.id){
       <li>
-        <app-task [task]="task"/>
+        <app-task [task]="task" (completeTask)="onCompleteTask($event)"/>
       </li>
     } @empty {
       <h2>No tasks</h2>
