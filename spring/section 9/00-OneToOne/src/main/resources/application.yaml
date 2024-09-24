@@ -1,0 +1,19 @@
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: 00-OneToOne
+  datasource:
+    url: jdbc:mysql://localhost:3306/hb-01-one-to-one-uni
+    password: george
+    username: george
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: trace
+        orm:
+          jdbc:
+            bind: trace
+#    root: warn
+
