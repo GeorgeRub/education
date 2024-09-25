@@ -2,6 +2,7 @@ package org.securitydemo.onetoonetest;
 
 import lombok.extern.slf4j.Slf4j;
 import org.securitydemo.onetoonetest.dao.InstructorDao;
+import org.securitydemo.onetoonetest.dao.InstructorDetailDao;
 import org.securitydemo.onetoonetest.entity.Instructor;
 import org.securitydemo.onetoonetest.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -16,19 +17,32 @@ import java.util.Optional;
 public class Application {
 
     InstructorDao instructorDao;
+    InstructorDetailDao instructorDetailDao;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(InstructorDao instructorDao) {
+    public CommandLineRunner commandLineRunner(InstructorDao instructorDao, InstructorDetailDao instructorDetailDao) {
         this.instructorDao = instructorDao;
+        this.instructorDetailDao = instructorDetailDao;
         return runner -> {
-//            createInstructor(instructorDao);
-            findInstructor();
+//            createInstructor();
+//            findInstructor();
+            findInstructorByDetails();
         };
 
+    }
+
+    private void findInstructorByDetails() {
+        Optional<InstructorDetail> instructorDetail = instructorDetailDao.findById(1);
+        if (instructorDetail.isPresent()) {
+            log.info("Instructor Detail found: {}", instructorDetail.get());
+            log.info("Instructor {}", instructorDetail.get().getInstructor());
+        } else {
+            log.info("Instructor Not Found");
+        }
     }
 
     private void findInstructor() {

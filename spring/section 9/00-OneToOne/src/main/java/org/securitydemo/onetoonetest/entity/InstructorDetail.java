@@ -25,4 +25,15 @@ public class InstructorDetail {
     @Column(name = "hobby")
     private String hobby;
 
+    @OneToOne(mappedBy = "instructorDetail", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST })
+    private Instructor instructor;
+
+    @Override
+    public String toString() {
+        return "InstructorDetail{" +
+                "id=" + id +
+                ", youtubeChannel='" + youtubeChannel + '\'' +
+                ", hobby='" + hobby + '\'' +
+                '}';
+    }
 }
