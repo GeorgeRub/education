@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: 01-one-to-many
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:mysql://localhost:3306/hb-04-one-to-many-uni
+    password: george
+    username: george
