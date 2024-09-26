@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct Customer {
     id: u64,
     name: String,

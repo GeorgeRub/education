@@ -1,6 +1,7 @@
 use crate::product::Product;
 use crate::customer::Customer;
 
+#[derive(Debug)]
 pub struct Order {
     id: u64,
     product: Product,
