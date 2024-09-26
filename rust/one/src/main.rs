@@ -1,17 +1,12 @@
-mod models;
-
+mod customer;
+mod product;
+mod order;
+mod category;
+use crate::{customer::Customer, product::Product, order::Order, category::Category};
 
 fn main() {
-    println!("Hello world!");
-    let car = models::Car {
-        model: String::from("AUDI"),
-        color: String::from("red"),
-    };
-    let car2 = models::Car {
-        model: String::from("BMW"),
-        color: String::from("red"),
-    };
-    car.string();
-    car2.string();
-    assert_eq!(car.color, car2.color)
+    let product = Product::new(1, String::from("Laptop"), 799.99, Category::Electronics);
+    let customer = Customer::new(1, "George".to_string(), "george@gmail.com".to_string());
+    let order = Order::new(1, product, customer, 6);
+    println!("Total coast {}:", order.total_bill());
 }
