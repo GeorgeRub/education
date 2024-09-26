@@ -1,5 +1,5 @@
-mod customer;
-mod product;
-mod order;
+pub mod customer;
+pub mod product;
+pub mod order;
 mod car;
-mod category;
+pub mod category;
