@@ -1,12 +1,14 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import {type User} from "./user.model";
+import {CardComponent} from "../shared/card/card.component";
 
 @Component({
   selector: 'app-user',
   standalone: true,
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    CardComponent
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
