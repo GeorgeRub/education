@@ -1,23 +1,11 @@
-import {Component} from '@angular/core';
-import {HeaderComponent} from "./header/header.component";
-import {UserInputComponent} from "./user-input/user-input.component";
+import {Injectable, signal} from "@angular/core";
 import type {InvestmentInput} from "./investment-input.model";
-import {InvestmentResultsComponent} from "./investment-results/investment-results.component";
-import {InvestmentResult} from "./investment-result.model";
+import type {InvestmentResult} from "./investment-result.model";
 
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  imports: [
-    HeaderComponent,
-    UserInputComponent,
-    InvestmentResultsComponent
-  ]
-})
-export class AppComponent {
+@Injectable({providedIn: 'root'})
+export class InvestmentService {
 
-  resultData?: InvestmentResult[];
+  resultData:InvestmentResult [] = []
 
   onCalculateInvestmentResults(data: InvestmentInput) {
     let {
@@ -45,6 +33,8 @@ export class AppComponent {
       });
     }
     // console.log(annualData)
-    this.resultData = annualData;
+    // this.resultData.set(annualData);
+   this.resultData = annualData
   }
+
 }
