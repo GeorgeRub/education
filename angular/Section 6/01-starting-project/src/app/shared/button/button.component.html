@@ -1,8 +1,6 @@
-<button>
-      <span>
-        {{ value() }}
-      </span>
-  <span class="icon">
-        {{ icon() }}
-      </span>
-</button>
+<!--<button>-->
+   <span>
+     <ng-content/>
+   </span>
+  <ng-content select=".icon"/>
+<!--</button>-->
