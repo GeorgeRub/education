@@ -1,11 +1,11 @@
-import {Component, input} from '@angular/core';
+import {Component, input, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'button[app-button]',
   standalone: true,
   imports: [],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.css'
+  styleUrl: './button.component.css',
 })
 export class ButtonComponent {
 
