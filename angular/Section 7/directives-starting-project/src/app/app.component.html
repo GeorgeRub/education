@@ -1,7 +1,13 @@
 <main>
-  <app-learning-resources />
+  <app-learning-resources/>
 
-  <hr />
+  <hr/>
 
-  <app-auth />
+  <app-auth/>
+  <!--  <ng-template appAuth userType="admin">-->
+  <!--    <p>Only admins should see this!</p>-->
+  <!--  </ng-template>-->
+
+  <p *appAuth="'admin'">Only admins should see this!</p>
+
 </main>
