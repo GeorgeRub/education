@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
     // this.destroyRef.onDestroy(() => {
     //   subscription.unsubscribe();
     // })
-
   }
 
 }
