@@ -1,0 +1,23 @@
+version: '3.6'
+services:
+	gitlab-server:
+		image: gitlab/gitlab-ce:latest
+		container_name: gitlab
+		restart: always
+		hostname: 'localhost'
+		ports:
+			- '8088:8088'
+			- '8443:443'
+			- '8022:22'
+		volumes:
+			- './gitalab/config:/etc/gitlab'
+			- './gitalab/logs:/var/log/gitlab'
+			- './gitalab/data:/var/opt/gitlab'
+		environment:
+			GITLAB_OMNIBUS_CONFIG: external_url 'http://localhost:8088' nginx['listen_port']=8088 gitlab_rails['initial_root_password']='george4586533' puma['worker_processe']=0
+	gitlab-runner:
+		image: gitlab/gitlab-runner
+		container_name: gitlab-runner
+		volumes:
+			- /var/run/docker.sock:/var/run/docker.sock
+			- ./gitlab-runner/config:/etc/gitlab-runner
