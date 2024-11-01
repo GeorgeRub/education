@@ -1,0 +1,13 @@
+[package]
+name = "next-gen-ai"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+kalosm = { git = "https://github.com/floneum/floneum", version = "0.3.2", features = ["full"] }
+tokio = { version = "1.41.0", features = ["full"] }
+
+[http]
+#require-ecdhe-aead = true    # Require ECDHE+AEAD in TLS (already true for TLS 1.3).
+#check-revoke = false
+ssl-version = "tlsv1.1"
