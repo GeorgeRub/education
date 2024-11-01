@@ -1,8 +1,8 @@
+use crate::docker_file::restart::Restart;
 use std::collections::HashMap;
 use std::fs::File;
 use std::hash::Hash;
 use std::io::Write;
-use crate::docker_file::restart::Restart;
 
 #[derive(Debug)]
 pub struct Service {
@@ -63,13 +63,13 @@ impl Service {
     fn generate_environments(&self, file: &mut File) {
         match &self.environment {
             Some(environment) => {
-                file.write_all("\t\tenvironment:\r\n".to_string().as_ref()).expect("");
+                file.write_all("\t\tenvironment:\r\n".to_string().as_ref()).expect("Error writing the environment key!!!");
                 for (key, value) in environment.iter() {
                     let mut env_val: String = String::new();
                     for val in value.iter() {
                         env_val.push_str(format!(" {}", val).as_str());
                     }
-                    file.write_all(format!("\t\t\t{}:{}\r\n", key, env_val).as_ref()).expect("");
+                    file.write_all(format!("\t\t\t{}:{}\r\n", key, env_val).as_ref()).expect("Error writing the environment value!!!");
                 }
             }
             _ => {}
@@ -79,9 +79,9 @@ impl Service {
     fn generate_volumes(&self, file: &mut File) {
         match &self.volumes {
             Some(volumes) => {
-                file.write_all("\t\tvolumes:\r\n".to_string().as_ref()).expect("");
+                file.write_all("\t\tvolumes:\r\n".to_string().as_ref()).expect("Error writing the volumes key!!!");
                 for volume in volumes.iter() {
-                    file.write_all(format!("\t\t\t- {}\r\n", volume).as_ref()).expect("");
+                    file.write_all(format!("\t\t\t- {}\r\n", volume).as_ref()).expect("Error writing the volume!!!");
                 }
             }
             _ => {}
@@ -89,17 +89,13 @@ impl Service {
     }
 
     pub fn generate(&self, file: &mut File) {
-        file.write_all(format!("\t{}:\r\n", &self.service_name).as_ref()).expect("TODO: panic message");
-
-        file.write_all(format!("\t\timage: {}\r\n", &self.image.as_ref().unwrap()).as_ref()).expect("");
-        file.write_all(format!("\t\tcontainer_name: {}\r\n", &self.container_name.as_ref().unwrap()).as_ref()).expect("");
-        &self.generate_restart(file);
-        &self.generate_hostname(file);
-        &self.generate_ports(file);
-
+        file.write_all(format!("\t{}:\r\n", &self.service_name).as_ref()).expect("Error writing the service name!!!");
+        file.write_all(format!("\t\timage: {}\r\n", &self.image.as_ref().unwrap()).as_ref()).expect("Error writing the image!!!");
+        file.write_all(format!("\t\tcontainer_name: {}\r\n", &self.container_name.as_ref().unwrap()).as_ref()).expect("Error writing the container name!!!");
+        self.generate_restart(file);
+        self.generate_hostname(file);
+        self.generate_ports(file);
         self.generate_volumes(file);
-
         self.generate_environments(file);
     }
-
 }
