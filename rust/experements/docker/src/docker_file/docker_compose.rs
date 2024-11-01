@@ -13,7 +13,6 @@ impl DockerCompose {
     }
 
     pub fn generate_file(&self, file_name: String) {
-        // println!("Generating file: {}", file_name);
         let mut f = File::create(file_name).expect("Unable to create file");
         let version_string = format!("version: '{}'\r\n", &self.version);
         f.write_all(version_string.as_ref()).expect("Error write version of a file");
