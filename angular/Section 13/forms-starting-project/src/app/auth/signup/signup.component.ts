@@ -1,5 +1,5 @@
 import {Component, DestroyRef, inject, OnInit} from '@angular/core';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {debounceTime} from "rxjs";
 
 @Component({
@@ -19,10 +19,32 @@ export class SignupComponent implements OnInit {
     email: new FormControl('', {
       validators: [Validators.required, Validators.email]
     }),
-    password: new FormControl('', {
-      validators: [Validators.required, Validators.minLength(6)]
+    passwords: new FormGroup({
+      password: new FormControl('', {
+        validators: [Validators.required, Validators.minLength(6)]
+      }),
+      confirmPassword: new FormControl('', {
+        validators: [Validators.required, Validators.minLength(6)]
+      }),
     }),
-    confirmPassword: new FormControl('')
+    firstName: new FormControl('', {
+      validators: [Validators.required]
+    }),
+    lastName: new FormControl('', {validators: [Validators.required]}),
+    address: new FormGroup({
+      street: new FormControl('', {validators: [Validators.required]}),
+      number: new FormControl('', {validators: [Validators.required]}),
+      postalCode: new FormControl('', {validators: [Validators.required]}),
+      city: new FormControl('', {validators: [Validators.required]}),
+    }),
+    role: new FormControl<'student' | 'teacher' | 'employee' | 'founder' | 'other'>
+    ('student', {validators: [Validators.required]}),
+    agree: new FormControl(false, {validators: [Validators.required]}),
+    source: new FormArray([
+      new FormControl(false),
+      new FormControl(false),
+      new FormControl(false),
+    ])
   })
 
   ngOnInit() {
@@ -49,7 +71,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log(this.welcomeForm.value)
+    console.log(this.welcomeForm.value)
   }
 
   onReset() {
