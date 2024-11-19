@@ -152,4 +152,12 @@
     <button type="reset" class="button button-flat" (click)="onReset()">Reset</button>
     <button type="submit" class="button">Sign up</button>
   </p>
+
+  @if (welcomeForm.dirty && !welcomeForm.untouched && welcomeForm.invalid) {
+    <p class="control-error">
+      FORM is INVALID
+    </p>
+  }
+
+
 </form>

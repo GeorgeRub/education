@@ -1,6 +1,36 @@
 import {Component, DestroyRef, inject, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {
+  AbstractControl,
+  FormArray,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators
+} from "@angular/forms";
 import {debounceTime} from "rxjs";
+
+// function equalPasswords(control: AbstractControl) {
+//   const password = control.get('password')?.value
+//   const confirmPassword = control.get('confirmPassword')?.value
+//   if (password === confirmPassword) {
+//     return null;
+//   }
+//   return {passwordsNotEqual: true}
+// }
+function equalPasswords(controlVal1: string, controlVal2: string) {
+
+  return (control: AbstractControl) => {
+    const val1 = control.get(controlVal1)?.value
+    const val2 = control.get(controlVal2)?.value
+    if (val1 === val2) {
+      return null;
+    }
+    return {valuesNotEqual: true}
+  }
+
+
+}
 
 @Component({
   selector: 'app-signup',
@@ -26,6 +56,8 @@ export class SignupComponent implements OnInit {
       confirmPassword: new FormControl('', {
         validators: [Validators.required, Validators.minLength(6)]
       }),
+    }, {
+      validators: [equalPasswords('password', 'confirmPassword')]
     }),
     firstName: new FormControl('', {
       validators: [Validators.required]
@@ -71,6 +103,10 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.welcomeForm.invalid) {
+      console.log('INVALID FORM')
+      return
+    }
     console.log(this.welcomeForm.value)
   }
 
