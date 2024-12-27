@@ -1,7 +1,6 @@
 import {Component, computed, DestroyRef, inject, input, OnInit, signal} from '@angular/core';
 
 import {TaskComponent} from './task/task.component';
-import {Task} from './task/task.model';
 import {TasksService} from "./tasks.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 
@@ -16,9 +15,9 @@ export class TasksComponent implements OnInit {
   userId = input.required<string>()
   order = signal<'asc' | 'desc'>('desc')
   // order?: 'asc' | 'desc'
-  private tasksService = inject(TasksService)
-  private activatedRoute = inject(ActivatedRoute)
-  private destroyRef = inject(DestroyRef)
+  private readonly tasksService = inject(TasksService)
+  private readonly activatedRoute = inject(ActivatedRoute)
+  private readonly destroyRef = inject(DestroyRef)
   // userTasks: Task[] = [];
   userTasks = computed(() =>
     this.tasksService.allTasks()

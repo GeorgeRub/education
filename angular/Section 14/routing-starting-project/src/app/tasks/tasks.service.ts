@@ -4,7 +4,7 @@ import { type NewTaskData } from './task/task.model';
 
 @Injectable({ providedIn: 'root' })
 export class TasksService {
-  private tasks = signal([
+  private readonly tasks = signal([
     {
       id: 't1',
       userId: 'u1',
