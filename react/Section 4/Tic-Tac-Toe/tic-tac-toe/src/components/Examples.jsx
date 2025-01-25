@@ -11,7 +11,6 @@ export default function Example() {
     function handleSelect(selectedButton) {
         // selectedButton => 'components', 'jsx', 'props', 'state'
         setSelectedTopic(selectedButton);
-        // console.log(selectedTopic);
     }
 
     if (selectedTopic) {
