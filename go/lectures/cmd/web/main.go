@@ -1,12 +1,12 @@
 package main
 
 import (
+	"github.com/george/web/pkg/config"
 	"github.com/george/web/pkg/handlers"
+	"github.com/george/web/pkg/render"
 	"log"
 	"net/http"
 )
-
-const port = ":8080"
 
 // main is the entry point for the application.
 //
@@ -14,12 +14,28 @@ const port = ":8080"
 // and logs any errors that might occur.
 func main() {
 
-	http.HandleFunc("/", handlers.Home)
-	http.HandleFunc("/about", handlers.About)
+	var app config.AppConfig
 
-	log.Println("Server started on port http://localhost" + port)
+	tc, err := render.CreateTemplateCache()
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	err := http.ListenAndServe(port, nil)
+	app.TemplateCache = tc
+	app.UseCache = false
+	app.Port = ":8080"
+
+	repo := handlers.NewRepo(&app)
+	handlers.Repo = repo
+
+	render.NewTemplates(&app)
+
+	http.HandleFunc("/home", handlers.Repo.Home)
+	http.HandleFunc("/about", handlers.Repo.About)
+
+	log.Println("Server started on port http://localhost" + app.Port + "/home")
+
+	err = http.ListenAndServe(app.Port, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
