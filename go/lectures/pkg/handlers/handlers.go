@@ -38,7 +38,16 @@ func NewHandlers(r *Repository) {
 // It renders the 'home.page.html' template in the 'templates' directory and
 // writes the result to the given ResponseWriter.
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "home.page.html", &models.TemplateData{})
+
+	stringMap := make(map[string]string)
+	stringMap["home"] = "Hello, again from home. \r\n"
+
+	remoteIp := r.RemoteAddr
+	m.App.Session.Put(r.Context(), "remote_ip", remoteIp)
+
+	render.RenderTemplate(w, "home.page.html", &models.TemplateData{
+		StringMap: stringMap,
+	})
 }
 
 // About handles HTTP requests for the about page.
@@ -46,5 +55,13 @@ func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 // It renders the 'about.page.html' template in the 'templates' directory and
 // writes the result to the given ResponseWriter.
 func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "about.page.html", &models.TemplateData{})
+
+	stringMap := make(map[string]string)
+	stringMap["test"] = "Hello, again."
+	remoteIp := m.App.Session.GetString(r.Context(), "remote_ip")
+	stringMap["remote_ip"] = remoteIp
+
+	render.RenderTemplate(w, "about.page.html", &models.TemplateData{
+		StringMap: stringMap,
+	})
 }

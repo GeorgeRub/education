@@ -4,6 +4,14 @@
     <div class="container">
         <h1>This is an about page</h1>
 
-        <p>This is from template: {{index .StringMap "about"}}</p>
+        <p>This is from template: {{index .StringMap "test"}}</p>
+
+        <p>
+            {{if ne (index .StringMap "remote_ip") ""}}
+                Your remote ip is: {{index .StringMap "remote_ip"}}
+            {{else}}
+                No IP found
+            {{end}}
+        </p>
     </div>
 {{end}}

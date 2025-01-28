@@ -31,7 +31,7 @@ func AddDefaultData(td *models.TemplateData) *models.TemplateData {
 	stringMap := make(map[string]string)
 	stringMap["about"] = "Hello, again for about."
 	stringMap["home"] = "Hello, again for home."
-	td.StringMap = stringMap
+	//td.StringMap = stringMap
 	return td
 }
 
