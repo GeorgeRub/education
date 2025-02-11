@@ -2,6 +2,7 @@ package org.udemy.kafka.kafkalesson.services;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,12 @@ public class ProductServiceImpl implements ProductService {
                 .quantity(productRestModel.quantity())
                 .build();
 
-        SendResult<String, ProductCreatedEvent> result = kafkaTemplate.send("product-created-events-topic", productId, productCreatedEvent).get();
+        //create a producer record
+        ProducerRecord<String, ProductCreatedEvent> producerRecord
+                = new ProducerRecord<>("product-created-events-topic", productId, productCreatedEvent);
+        producerRecord.headers().add("messageId", UUID.randomUUID().toString().getBytes());
+        SendResult<String, ProductCreatedEvent> result
+                = kafkaTemplate.send(producerRecord).get();
         showInformation(result);
         return productId;
     }
