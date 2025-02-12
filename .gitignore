@@ -34,3 +34,5 @@ build/
 
 ### VS Code ###
 .vscode/
+Kafka/kafka-3.9.0-src.tgz
+Kafka/kafka_2.12-3.9.0.tgz
